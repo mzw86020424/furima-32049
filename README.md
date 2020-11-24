@@ -61,7 +61,7 @@
 | postal_code    | string     | null: false                    |
 | city           | string     | null: false                    |
 | prefecture_id  | integer    | null: false                    |
-| transaction_id | references | null: false, foreign_key: true |
+| transaction    | references | null: false, foreign_key: true |
 
 ### Association
 
