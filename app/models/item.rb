@@ -15,4 +15,3 @@ class Item < ApplicationRecord
     validates :category_id, :status_id, :shipping_fee_status_id, :prefecture_id, :lead_time_id, numericality: { other_than: 1 }
   end
 end
- 
