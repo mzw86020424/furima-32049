@@ -6,8 +6,9 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :lead_time
   belongs_to :user
-  # has_one :transaction
+  has_one :transaction
   has_one_attached :image
+
   with_options presence: true do
     validates :price, numericality: { greater_than: 299, less_than: 10_000_000 },
                       format: { with: /\d/, message: 'is invalid. Input half-width numbers.' }
