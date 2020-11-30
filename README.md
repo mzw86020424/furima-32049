@@ -14,7 +14,7 @@
 ### Association
 
 - has_many :items
-- has_many :orders
+- has_many :transactions
 
 
 ## items テーブル
@@ -34,10 +34,10 @@
 ### Association
 
 - belongs_to :user
-- has_one :order
+- has_one :transaction
 
 
-## orders テーブル
+## transactions テーブル
 
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
@@ -61,8 +61,8 @@
 | postal_code    | string     | null: false                    |
 | city           | string     | null: false                    |
 | prefecture_id  | integer    | null: false                    |
-| order    | references | null: false, foreign_key: true |
+| transaction    | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :order
+- belongs_to :transaction
