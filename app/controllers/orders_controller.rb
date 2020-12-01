@@ -2,12 +2,13 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   def index
     @item = Item.find(params[:item_id])
-    @order_form = OrderForm.new
     send_to_root
+    @order_form = OrderForm.new
   end
 
   def create
     @item = Item.find(params[:item_id])
+    send_to_root
     @order_form = OrderForm.new(order_params)
     send_to_root
     if @order_form.valid?
@@ -35,7 +36,7 @@ class OrdersController < ApplicationController
   end
 
   def send_to_root
-    if current_user.id == @item.user_id
+    if current_user.id == @item.user_id || @item.user != nil
       redirect_to root_path
     end
   end
