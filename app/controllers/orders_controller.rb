@@ -3,11 +3,13 @@ class OrdersController < ApplicationController
   def index
     @item = Item.find(params[:item_id])
     @order_form = OrderForm.new
+    send_to_root
   end
 
   def create
     @item = Item.find(params[:item_id])
     @order_form = OrderForm.new(order_params)
+    send_to_root
     if @order_form.valid?
       pay_item
       @order_form.save
@@ -30,5 +32,11 @@ class OrdersController < ApplicationController
       card: order_params[:token],    # カードトークン
       currency: 'jpy'                 # 通貨の種類（日本円）
     )
+  end
+
+  def send_to_root
+    if current_user.id == @item.user_id
+      redirect_to root_path
+    end
   end
 end
