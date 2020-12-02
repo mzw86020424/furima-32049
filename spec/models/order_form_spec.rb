@@ -9,6 +9,10 @@ describe OrderForm do
       it '全ての項目が存在すれば購入できる' do
         expect(@order_form).to be_valid
       end
+      it '建物名が空でも購入できる' do
+        @order_form.building = nil
+        expect(@order_form).to be_valid
+      end
     end
 
     context '商品購入がうまくいかないとき' do
@@ -70,7 +74,3 @@ describe OrderForm do
     end
   end
 end
-
-# - 配送先の情報として、郵便番号・都道府県・市区町村・番地・電話番号が必須であること
-# - 郵便番号にはハイフンが必要であること（123-4567となる）
-# - 電話番号にはハイフンは不要で、11桁以内であること（09012345678となる）
