@@ -12,7 +12,6 @@ FactoryBot.define do
     token { 'tok_6dafb5a9ba832bda3b60dabb97cd' }
     user_id { 1 }
     item_id { 1 }
-    price { 10000 }
-
+    price { 10_000 }
   end
 end
